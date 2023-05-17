@@ -226,6 +226,7 @@ input[id="hamburger"]:checked+label+div {
 	width: 200px;
 	float: left;
 	margin-bottom: 10px;
+	cursor: pointer;
 }
 
 .itemImage {

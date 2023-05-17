@@ -56,5 +56,9 @@ public class ProductDAO { // DAO는 테이블 당 하나씩
 
 	public int countCategory(String category) {
 		return my.selectOne("product.countCategory",category);
-	} 
+	}
+	
+	public int viewsCount(int productId) {
+		return my.update("product.viewsCount", productId);
+	}
 }

@@ -80,7 +80,18 @@
 		display: flex;
 		list-style-type: none;
 		margin: 0;
+		font-size: 14px;
 	}
+	
+	.pages {
+		width: 34px; 
+		height: 34px; 
+		background-color: white; 
+		border: 1px solid rgb(204, 204, 204);
+		color: rgb(155, 153, 169);
+		cursor: pointer;
+	}
+	
 </style>
 </head>
 <body>
@@ -143,7 +154,7 @@
 		</div>
 	</div>
 	<hr>
-	<div id="d1" style="height: 1140px;">
+	<div id="d1" style="height: 1170px;">
 	<c:forEach var="i" begin="1" end="${fn:length(list)}">
 		<div class="item">
 			<div class="itemNo" style="display: none;">${list[i-1].productId}</div>
@@ -160,14 +171,16 @@
 		</div>
 	</c:forEach>
 	</div>
+	<div style="display: flex; justify-content: center;">
 <%
 	int pages = (int)request.getAttribute("pages");
 	for(int p = 1; p <= pages; p++){
 %>
-	<button style="width: 50px;" class="pages"><%= p %></button>
+	<button class="pages"><%= p %></button>
 <%		
 	}
 %>
+	</div>
 	
 	
 </div>

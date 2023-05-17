@@ -37,24 +37,6 @@ public class ProductController {
 		return "product/productList";
 	}
 
-	@RequestMapping("product/productList")
-	public void productList(PageVO vo, String search, Model model) {
-		vo.setStartEnd(vo.getPage());
-		HashMap<String, Object> map = new HashMap<String, Object>();
-		List<ProductImageVO> list2 = new ArrayList<ProductImageVO>();
-		map.put("start", vo.getStart());
-		map.put("end", vo.getEnd());
-		map.put("search", search);
-		System.out.println(map);
-		List<ProductVO> list = dao.searchAll(map);
-		for (int i = 0; i < list.size(); i++) {
-			list2.add(dao2.one(list.get(i).getProductId()));
-		}
-		model.addAttribute("list", list);
-		model.addAttribute("list2", list2);
-	}
-	
-	
 	@RequestMapping("product/searchList")
 	public void searchList(PageVO vo, String search, Model model) {
 		vo.setStartEnd(vo.getPage());
@@ -77,6 +59,24 @@ public class ProductController {
 		model.addAttribute("pages", pages);
 		model.addAttribute("search", search);
 	}
+
+	@RequestMapping("product/productList")
+	public void productList(PageVO vo, String search, Model model) {
+		vo.setStartEnd(vo.getPage());
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		List<ProductImageVO> list2 = new ArrayList<ProductImageVO>();
+		map.put("start", vo.getStart());
+		map.put("end", vo.getEnd());
+		map.put("search", search);
+		System.out.println(map);
+		List<ProductVO> list = dao.searchAll(map);
+		for (int i = 0; i < list.size(); i++) {
+			list2.add(dao2.one(list.get(i).getProductId()));
+		}
+		model.addAttribute("list", list);
+		model.addAttribute("list2", list2);
+	}
+
 	@RequestMapping("product/categoryList")
 	public void categoryList(PageVO vo, String category, Model model) {
 		vo.setStartEnd(vo.getPage());
@@ -99,7 +99,7 @@ public class ProductController {
 		model.addAttribute("pages", pages);
 		model.addAttribute("category", category);
 	}
-	
+
 	@RequestMapping("product/productList2")
 	public String productList2(PageVO vo, String category, Model model) {
 		vo.setStartEnd(vo.getPage());
@@ -118,5 +118,16 @@ public class ProductController {
 		return "product/productList";
 	}
 
+	@RequestMapping("product/viewsCount")
+	public String viewsCount(int productId) {
+		int result = dao.viewsCount(productId);
+		if (result == 1) {
+			System.out.println("뷰 증가");
+		} else {
+			System.out.println("뷰 증가 에러");
+		}
+		/* return "redirect:gazeeDetail.jsp?productId=" + productId; */
+		return "redirect:test.jsp";
+	}
 
 }
