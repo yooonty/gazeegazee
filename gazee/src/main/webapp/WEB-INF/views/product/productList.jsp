@@ -8,6 +8,18 @@ $('.item').click(function() {
 	location.href = "../product/gazeeDetail.jsp?productId=" + productId
 })
 </script>
+<div class="recommend">
+<c:choose>
+    <c:when test="${mode==0}">
+        	<h3 class="title">오늘의 인기상품</h3>
+    </c:when>
+    <c:when test="${mode==1}">
+	        <h3 class="title">이런 상품은 어때요?</h3>
+    </c:when>
+    <c:when test="${mode==2}">
+        <h3 class="title">AI 추천 상품</h3>
+    </c:when>
+</c:choose>
 <c:forEach var="i" begin="1" end="${fn:length(list)}">
 	<div class="item">
 		<div class="itemNo" style="display: none;">${list[i-1].productId}</div>
@@ -23,6 +35,7 @@ $('.item').click(function() {
 		</div>
 	</div>
 </c:forEach>
+</div>
 
 
 
