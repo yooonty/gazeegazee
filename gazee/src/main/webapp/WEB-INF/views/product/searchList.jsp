@@ -19,10 +19,10 @@
 		$('.pages').click(function() {
 			alert($(this).text())
 			$.ajax({
-				url : "../product/productList2",
+				url : "../product/productList",
 				data : {
 					page : $(this).text(),
-					category : '${category}'
+					search : '${search}'
 				},
 				success : function(res) {
 					$('#d1').html(res);
@@ -62,7 +62,7 @@
 		</jsp:include>
 	</div>
 	<div id="content_wrap">
-		<div id = "content">
+		<div id="content">
 			<h3 id="categoryTitle">전체 카테고리</h3>
 			<div id="categoryWrap">
 				<div class="category"><a class="categoryMenu">의류</a></div><div class="category"><a class="categoryMenu">잡화</a></div><div class="category"><a class="categoryMenu">도서</a></div><div class="category"><a class="categoryMenu">디지털기기</a></div>
@@ -71,7 +71,7 @@
 			</div>
 			<div id="searchHelper">
 				<div>
-					<span style="color: #693FAA;">${category}</span>에 대한 검색 <span style="color: #888888;">${count}개</span>
+					<span style="color: #693FAA;">${search}</span>에 대한 검색 <span style="color: #888888;">${count}개</span>
 				</div>
 				<div>
 					<ul id="searchOrder">

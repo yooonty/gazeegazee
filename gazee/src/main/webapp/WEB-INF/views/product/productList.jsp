@@ -23,7 +23,7 @@ $('.item').click(function() {
 <c:forEach var="i" begin="1" end="${fn:length(list)}">
 	<div class="item">
 		<div class="itemNo" style="display: none;">${list[i-1].productId}</div>
-		<img class="itemImage" alt="제품이미지" src="../resources/img/${list2[i-1].productImageUrl}">
+		<img class="itemImage" alt="제품이미지" src="http://erxtjrehmojx17106475.cdn.ntruss.com/${list2[i-1].productImageUrl}?type=f&w=195&h=195">
 		<div class="itemContent">
 			${list[i-1].productName}<!-- 출력용(expression language-EL) -->
 		</div>
