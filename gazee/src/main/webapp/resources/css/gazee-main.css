@@ -1,0 +1,101 @@
+/* content */
+.item {
+	width: 200px;
+	float: left;
+	margin-bottom: 10px;
+}
+
+.itemImage {
+	border-radius: 5%;
+	width: 195px;
+	height: 195px;
+}
+
+.itemContent {
+	display: flex;
+	justify-content: flex-start;
+	font-weight: bold;
+}
+
+#banner {
+	width: 100%;
+	height: 300px;
+	border-radius: 30px;
+	overflow: hidden;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	cursor: pointer;
+}
+
+#sell {
+	height: 40px;
+	width: 80px;
+	background: white;
+	color: #693FAA;
+	border-radius: 30px;
+}
+
+.title {
+	text-align: center;
+	font-size: 1rem;
+	font-weight: bold;
+	margin-top: 8px;
+}
+
+.recommend {
+	height: 350px;
+	padding-top: 30px;
+}
+
+.categoryMenu {
+	cursor: pointer;
+}
+
+/* searchList.jsp, categoryList.jsp */
+#categoryWrap {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	transition: height 0.3s ease-in-out 0s;
+	margin-bottom: 50px;
+}
+
+.category {
+	width: 207px;
+	height: 48px;
+	background: rgb(255, 255, 255);
+	margin: 0px 1px 1px 0px;
+	border: 1px solid rgb(238, 238, 238);
+	display: flex;
+	align-items: center;
+	padding: 0 20px
+}
+
+#categoryTitle {
+	margin-top: 0;
+	text-align: center;
+	font-size: 24px;
+	font-weight: 500;
+}
+
+#searchHelper {
+	display: flex;
+	justify-content: space-between;
+}
+
+#searchOrder {
+	display: flex;
+	list-style-type: none;
+	margin: 0;
+	font-size: 14px;
+}
+
+.pages {
+	width: 34px;
+	height: 34px;
+	background-color: white;
+	border: 1px solid rgb(204, 204, 204);
+	color: rgb(155, 153, 169);
+	cursor: pointer;
+}
