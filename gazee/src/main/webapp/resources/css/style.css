@@ -34,13 +34,11 @@ html, body {
 #content_wrap {
 	flex: 1;
 	padding: 140px 0 0 0;
-	/* 위, 오른쪽, 아래, 왼쪽 순 - 왼쪽 오른쪽은 건들지 말고 위, 아래 여백 조정하시고 싶으시면 여기서 하세요 */
 	margin: 0 auto;
 }
 
 #content {
 	width: 1000px;
-	/* height: 670px; */ /* 안에 내용 늘어나면 여기 사이즈를 조절하세요 */
 }
 
 #footer {
@@ -224,57 +222,7 @@ input[id="hamburger"]:checked+label+div {
 	border: 0px;
 }
 
-/* content */
-.item {
-	width: 200px;
-	float: left;
-	margin-bottom: 10px;
-}
-
-.itemImage {
-	border-radius: 5%;
-	width: 195px;
-	height: 195px;
-}
-
-.itemContent {
-	display: flex;
-	justify-content: flex-start;
-	font-weight: bold;
-}
-
-#banner {
-	width: 100%;
-	height: 300px;
-	border-radius: 30px;
-	overflow: hidden;
-	margin-top: 50px;
-	margin-bottom: 50px;
-}
-
-#sell {
-	height: 40px;
-	width: 80px;
-	background: white;
-	color: #693FAA;
-	border-radius: 30px;
-}
-
-.title {
-	text-align: center;
-	font-size: 1rem;
-	font-weight: bold;
-	margin-top: 8px;
-}
-
-.recommend {
-	height: 350px;
-}
-
-.categoryMenu {
-	cursor: pointer;
-}
-
+/* 사이드바 - 채팅방, 최근본상품, Chatbot */
 #recentView {
 	width: 90px;
 	position: fixed;
@@ -288,6 +236,7 @@ input[id="hamburger"]:checked+label+div {
 	border: 1px solid rgb(204, 204, 204);
 	background: rgb(255, 255, 255);
 	margin-bottom: 6px;
+	border-radius: 5px;
 }
 
 .recentViewTxt {
@@ -295,7 +244,6 @@ input[id="hamburger"]:checked+label+div {
 	font-weight: 600;
 	color: rgb(102, 102, 102);
 	text-align: center;
-	margin-bottom: 8px;
 }
 
 .recentViewCount {
@@ -314,52 +262,18 @@ input[id="hamburger"]:checked+label+div {
 	border-bottom: 2px dotted rgb(136, 136, 136);
 	padding-bottom: 10px;
 }
-
-/* searchList.jsp, categoryList.jsp */
-#categoryWrap {
-	width: 100%;
-	display: flex;
-	justify-content: center;
-	flex-wrap: wrap;
-	transition: height 0.3s ease-in-out 0s;
-	margin-bottom: 50px;
-}
-
-.category {
-	width: 207px;
-	height: 48px;
-	background: rgb(255, 255, 255);
-	margin: 0px 1px 1px 0px;
-	border: 1px solid rgb(238, 238, 238);
-	display: flex;
-	align-items: center;
-	padding: 0 20px
-}
-
-#categoryTitle {
-	margin-top: 0;
-	text-align: center;
-	font-size: 24px;
-	font-weight: 500;
-}
-
-#searchHelper {
-	display: flex;
-	justify-content: space-between;
-}
-
-#searchOrder {
-	display: flex;
-	list-style-type: none;
-	margin: 0;
-	font-size: 14px;
-}
-
-.pages {
-	width: 34px;
-	height: 34px;
+#btn_recentItem {
 	background-color: white;
-	border: 1px solid rgb(204, 204, 204);
-	color: rgb(155, 153, 169);
+	color: #693FAA;
+	border: 1px solid #693FAA;
+	border-radius: 3px;
+	font-size: 12px;
+	font-weight: 600;
 	cursor: pointer;
+}
+.btn_sell, .btn_myChatlist, .btn_chatBot {
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+	gap: 3px;
 }
