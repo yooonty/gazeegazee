@@ -20,10 +20,10 @@
 		$('.pages').click(function() {
 			alert($(this).text())
 			$.ajax({
-				url : "../product/productList",
+				url : "../product/productListOnSale",
 				data : {
 					page : $(this).text(),
-					num : 20, 
+					num : 20,
 					search : '${search}'
 				},
 				success : function(res) {
@@ -75,7 +75,7 @@
 				</div>
 				<div>
 					<ul id="searchOrder">
-						<li><a href="../product/searchListOnSale?page=1&num=20&search=${search}">판매중인 상품보기</a></li>
+						<li><a href="../product/searchList?page=1&num=20&search=${search}">전체 상품보기</a></li>
 					</ul>
 				</div>
 			</div>

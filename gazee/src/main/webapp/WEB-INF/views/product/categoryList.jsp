@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%
 	String id = (String)session.getAttribute("id");
 %>
@@ -11,7 +12,7 @@
 <meta charset="UTF-8">
 <title>가지가지</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
-<link href="../resources/css/style.css" rel="stylesheet" type="text/css">
+<link href="../resources/css/gazee-main.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="../resources/js/jquery-3.6.4.js"></script>
 <script type="text/javascript">
 	$(function() { //body 읽어왔을때
@@ -22,6 +23,7 @@
 				url : "../product/productList2",
 				data : {
 					page : $(this).text(),
+					num : 20,
 					category : '${category}'
 				},
 				success : function(res) {
@@ -37,13 +39,13 @@
 		/* 검색창을 이용한 검색 */
 		$('#searchButton').click(function() {
 			var search = $('#searchBar').val()
-			location.href = "../product/searchList?page=1&search=" + search
+			location.href = "../product/searchList?page=1&num=20&search=" + search
 		})
 		
 		/* 카테고리를 이용한 검색 */
 		$('.categoryMenu').click(function() {
 			var category = $(this).text()
-			location.href = "../product/categoryList?page=1&category=" + category
+			location.href = "../product/categoryList?page=1&num=20&category=" + category
 		})
 		
 		/* 상품 상세페이지로 이동 */
@@ -57,9 +59,7 @@
 <body>
 <div id="wrap">
 	<div id = "header">
-		<jsp:include page="/home/Header.jsp" flush="true">
-			<jsp:param name="mode" value="1"/>
-		</jsp:include>
+		<jsp:include page="/home/Header.jsp" flush="true"/>
 	</div>
 	<div id="content_wrap">
 		<div id = "content">
@@ -75,9 +75,7 @@
 				</div>
 				<div>
 					<ul id="searchOrder">
-						<li>조회순</li>
-						<li class= "line">|</li>
-						<li>가격순</li>
+						<li><a href="../product/categoryListOnSale?page=1&num=20&category=${category}">판매중인 상품보기</a></li>
 					</ul>
 				</div>
 			</div>
@@ -86,7 +84,7 @@
 			<c:forEach var="i" begin="1" end="${fn:length(list)}">
 				<div class="item">
 					<div class="itemNo" style="display: none;">${list[i-1].productId}</div>
-					<img class="itemImage" alt="제품이미지" src="http://erxtjrehmojx17106475.cdn.ntruss.com/${list2[i-1].productImageUrl}?type=f&w=195&h=195">
+					<img class="itemImage" alt="제품이미지" src="http://erxtjrehmojx17106475.cdn.ntruss.com/${list2[i-1].productImageName}?type=f&w=195&h=195">
 					<div class="itemContent">
 						${list[i-1].productName}<!-- 출력용(expression language-EL) -->
 					</div>
@@ -94,7 +92,7 @@
 						${list[i-1].productContent}
 					</div>
 					<div class="itemContent">
-						${list[i-1].price}원
+						<fmt:formatNumber value="${list[i-1].price}" pattern="#,###"/>원
 					</div>
 				</div>
 			</c:forEach>
