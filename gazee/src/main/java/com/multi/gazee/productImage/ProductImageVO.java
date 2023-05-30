@@ -3,7 +3,7 @@ package com.multi.gazee.productImage;
 public class ProductImageVO {
 	int productImageId;
 	int productId;
-	String productImageUrl;
+	String productImageName;
 	
 	public int getProductImageId() {
 		return productImageId;
@@ -17,19 +17,18 @@ public class ProductImageVO {
 	public void setProductId(int productId) {
 		this.productId = productId;
 	}
-	public String getProductImageUrl() {
-		return productImageUrl;
+	public String getProductImageName() {
+		return productImageName;
 	}
-	public void setProductImageUrl(String productImageUrl) {
-		this.productImageUrl = productImageUrl;
+	public void setProductImageName(String productImageName) {
+		this.productImageName = productImageName;
 	}
 	
 	@Override
 	public String toString() {
-		return "ProductImageVO [productImageId=" + productImageId + ", productId=" + productId + ", productImageUrl="
-				+ productImageUrl + "]";
+		return "ProductImageVO [productImageId=" + productImageId + ", productId=" + productId + ", productImageName="
+				+ productImageName + "]";
 	}
-	
 	
 	
 }

@@ -15,7 +15,7 @@ public class ProductImageDAO { // DAO는 테이블 당 하나씩
 	SqlSessionTemplate my;
 	
 	public ProductImageVO one(int productId) {
-		ProductImageVO vo = my.selectOne("productImage.list",productId);
+		ProductImageVO vo = my.selectOne("productImg.list",productId);
 		return vo;
 	}
 }
