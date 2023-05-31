@@ -16,6 +16,20 @@
 <script type="text/javascript" src="../resources/js/jquery-3.6.4.js"></script>
 <script type="text/javascript">
 	$(function() { //body 읽어왔을때
+		var id = '<%=id%>'
+		if(id!="null"){ //사용자가 로그인했을때
+			/* 최근 본 상품 숫자 */
+			$.ajax({
+				url : "../recentlyViewed/recentViewCount",
+				data : {
+					memberId : id
+				},
+				success : function(res) {
+					$('.viewCount').append(res)
+				}
+			})
+		}
+		
 		/* 페이지 클릭시 다른 페이지로 */
 		$('.pages').click(function() {
 			alert($(this).text())
@@ -34,18 +48,6 @@
 					alert('실패!')
 				}
 			})
-		})
-		
-		/* 검색창을 이용한 검색 */
-		$('#searchButton').click(function() {
-			var search = $('#searchBar').val()
-			location.href = "../product/searchList?page=1&num=20&search=" + search
-		})
-		
-		/* 카테고리를 이용한 검색 */
-		$('.categoryMenu').click(function() {
-			var category = $(this).text()
-			location.href = "../product/categoryList?page=1&num=20&category=" + category
 		})
 		
 		/* 상품 상세페이지로 이동 */
@@ -85,13 +87,13 @@
 				<div class="item">
 					<div class="itemNo" style="display: none;">${list[i-1].productId}</div>
 					<img class="itemImage" alt="제품이미지" src="http://erxtjrehmojx17106475.cdn.ntruss.com/${list2[i-1].productImageName}?type=f&w=195&h=195">
-					<div class="itemContent">
+					<div class="itemCategory" style="color: #693FAA;">
+						${list[i-1].category}
+					</div>
+					<div class="itemProductName">
 						${list[i-1].productName}<!-- 출력용(expression language-EL) -->
 					</div>
-					<div class="itemContent">
-						${list[i-1].productContent}
-					</div>
-					<div class="itemContent">
+					<div class="itemPrice">
 						<fmt:formatNumber value="${list[i-1].price}" pattern="#,###"/>원
 					</div>
 				</div>
@@ -109,6 +111,7 @@
 			</div>
 		</div>
 	</div>
+	<jsp:include page="/home/SideBar.jsp" flush="true"/>
 	<jsp:include page="/home/Footer.jsp" flush="true"/>
 </div>
 </body>
