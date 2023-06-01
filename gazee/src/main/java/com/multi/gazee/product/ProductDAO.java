@@ -97,6 +97,9 @@ public class ProductDAO { // DAO는 테이블 당 하나씩
 		return timestamp;
 	}
 	
-	/* 상세페이지 */
-
+	/* 상품판매자 검색 */
+	public String checkSeller(int productId) {
+		return my.selectOne("product.checkSeller",productId);
+	} 
+	
 }
