@@ -3,7 +3,22 @@
 <%
 	String mode = request.getParameter("mode");
 	String id = (String)session.getAttribute("id");
-%>	
+%>
+<script type="text/javascript">
+$(function() {
+	/* 검색창을 이용한 검색 */
+	$('#searchButton').click(function() {
+		var search = $('#searchBar').val()
+		location.href = "../product/searchListOnSale?page=1&num=20&search=" + search
+	})
+	
+	/* 카테고리(햄버거바)를 이용한 검색 */
+	$('.categoryMenu').click(function() {
+		var category = $(this).text()
+		location.href = "../product/categoryListOnSale?page=1&num=20&category=" + category
+	})
+})
+</script>
 <link rel="stylesheet" href="../resources/css/style.css" type="text/css">
 		<div class="headerContent">
 			<div class="logo">
@@ -32,11 +47,11 @@
 				<%
 					if(id!=null){
 				%>
-				<li id="login">${id}님</li>
+				<li id="login">${nickname}님</li>
 				<li class= "line">|</li>
 				<li><a href="../member/logout">로그아웃</a></li>
 				<li class= "line">|</li>
-				<li>고객센터</li>
+				<li><a href="../customerService/faq/faqlist?page=1&mode=1">고객센터</a></li>
 				<li class= "line">|</li>
 				<li>
 				<%
@@ -46,7 +61,7 @@
 				<li class= "line">|</li>
 				<li><a href="../member/signup.jsp">회원가입</a></li>
 				<li class= "line">|</li>
-				<li>고객센터</li>
+				<li><a href="../customerService/faq/faqlist?page=1&mode=1">고객센터</a></li>
 				<li class= "line">|</li>
 				<li>
 				<%} %>
