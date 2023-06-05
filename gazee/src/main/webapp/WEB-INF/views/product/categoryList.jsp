@@ -3,9 +3,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%
-	String id = (String)session.getAttribute("id");
-%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,19 +13,6 @@
 <script type="text/javascript" src="../resources/js/jquery-3.6.4.js"></script>
 <script type="text/javascript">
 	$(function() { //body 읽어왔을때
-		var id = '<%=id%>'
-		if(id!="null"){ //사용자가 로그인했을때
-			/* 최근 본 상품 숫자 */
-			$.ajax({
-				url : "../recentlyViewed/recentViewCount",
-				data : {
-					memberId : id
-				},
-				success : function(res) {
-					$('.viewCount').append(res)
-				}
-			})
-		}
 		
 		/* 페이지 클릭시 다른 페이지로 */
 		$('.pages').click(function() {
